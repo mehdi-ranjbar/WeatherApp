@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/weather_nav_host"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.mehdiweather.MyProject.Fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <argument
+            android:name="weatherResponse"
+            app:argType="com.example.mehdiweather.MyProject.Model.WeatherResponse" />
+        <action
+            android:id="@+id/action_homeFragment_to_savedFragment"
+            app:destination="@id/savedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.example.mehdiweather.MyProject.Fragment.SavedFragment"
+        android:label="fragment_saved"
+        tools:layout="@layout/fragment_saved" >
+        <action
+            android:id="@+id/action_savedFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="weatherResponse"
+            app:argType="com.example.mehdiweather.MyProject.Model.WeatherResponse" />
+    </fragment>
+</navigation>
